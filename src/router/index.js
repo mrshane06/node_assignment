@@ -19,6 +19,31 @@ const routes = [
     path: '/products',
     name: 'products',
     component: () => import(/* webpackChunkName: "products" */ '../views/ProductsView.vue')
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: () => import(/* webpackChunkName: "admin" */ '../views/AdminView.vue')
+  },
+  {
+    path: '/admin/add-product',
+    name: 'add-product',
+    component: () => import(/* webpackChunkName: "add-product" */ '../views/AddProductView.vue')
+  },
+  {
+    path: '/admin/update-product',
+    name: 'update-product',
+    component: () => import(/* webpackChunkName: "update-product" */ '../views/UpdateProductView.vue')
+  },
+  {
+    path: '/admin/delete-product',
+    name: 'delete-product',
+    component: () => import(/* webpackChunkName: "delete-product" */ '../views/DeleteProductView.vue')
+  },
+  {
+    path: '/admin/view-users',
+    name: 'view-users',
+    component: () => import(/* webpackChunkName: "view-users" */ '../views/ViewUsersView.vue')
   }
 
 ]
