@@ -129,9 +129,9 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><router-link to="/single-product"><i class="bi bi-eye"></i></router-link></li>
+                    <li><a href="single-product.html"><i class="bi bi-star-fill"></i></a></li>
+                    <li><a href="single-product.html"><i class="bi bi-bag-check"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="https://mrshane06.github.io/node_assignment_images/men-01.jpg" alt="">
@@ -152,9 +152,9 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><router-link to="/single-product"><i class="bi bi-eye"></i></router-link></li>
+                    <li><a href="single-product.html"><i class="bi bi-star-fill"></i></a></li>
+                    <li><a href="single-product.html"><i class="bi bi-bag-check"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="https://mrshane06.github.io/node_assignment_images/men-02.jpg" alt="">
@@ -175,9 +175,9 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><router-link to="/single-product"><i class="bi bi-eye"></i></router-link></li>
+                    <li><a href="single-product.html"><i class="bi bi-star-fill"></i></a></li>
+                    <li><a href="single-product.html"><i class="bi bi-bag-check"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="https://mrshane06.github.io/node_assignment_images/men-03.jpg" alt="">
@@ -198,9 +198,9 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><router-link to="/single-product"><i class="bi bi-eye"></i></router-link></li>
+                    <li><a href="single-product.html"><i class="bi bi-star-fill"></i></a></li>
+                    <li><a href="single-product.html"><i class="bi bi-bag-check"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="https://mrshane06.github.io/node_assignment_images/men-01.jpg" alt="">
@@ -246,9 +246,9 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><router-link to="/single-product"><i class="bi bi-eye"></i></router-link></li>
+                    <li><a href="single-product.html"><i class="bi bi-star-fill"></i></a></li>
+                    <li><a href="single-product.html"><i class="bi bi-bag-check"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="https://mrshane06.github.io/node_assignment_images/women-01.jpg" alt="">
@@ -269,9 +269,9 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><router-link to="/single-product"><i class="bi bi-eye"></i></router-link></li>
+                    <li><a href="single-product.html"><i class="bi bi-star-fill"></i></a></li>
+                    <li><a href="single-product.html"><i class="bi bi-bag-check"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="https://mrshane06.github.io/node_assignment_images/women-02.jpg" alt="">
@@ -292,9 +292,9 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><router-link to="/single-product"><i class="bi bi-eye"></i></router-link></li>
+                    <li><a href="single-product.html"><i class="bi bi-star-fill"></i></a></li>
+                    <li><a href="single-product.html"><i class="bi bi-bag-check"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="https://mrshane06.github.io/node_assignment_images/women-03.jpg" alt="">
@@ -315,9 +315,9 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><router-link to="/single-product"><i class="bi bi-eye"></i></router-link></li>
+                    <li><a href="single-product.html"><i class="bi bi-star-fill"></i></a></li>
+                    <li><a href="single-product.html"><i class="bi bi-bag-check"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="assets/images/women-01.jpg" alt="">
@@ -363,9 +363,9 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><router-link to="/single-product"><i class="bi bi-eye"></i></router-link></li>
+                    <li><a href="single-product.html"><i class="bi bi-star-fill"></i></a></li>
+                    <li><a href="single-product.html"><i class="bi bi-bag-check"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="https://mrshane06.github.io/node_assignment_images/kid-01.jpg" alt="">
@@ -386,9 +386,9 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><router-link to="/single-product"><i class="bi bi-eye"></i></router-link></li>
+                    <li><a href="single-product.html"><i class="bi bi-star-fill"></i></a></li>
+                    <li><a href="single-product.html"><i class="bi bi-bag-check"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="https://mrshane06.github.io/node_assignment_images/kid-02.jpg" alt="">
@@ -409,9 +409,9 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><router-link to="/single-product"><i class="bi bi-eye"></i></router-link></li>
+                    <li><a href="single-product.html"><i class="bi bi-star-fill"></i></a></li>
+                    <li><a href="single-product.html"><i class="bi bi-bag-check"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="https://mrshane06.github.io/node_assignment_images/kid-03.jpg" alt="">
@@ -432,9 +432,9 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
-                                            <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><router-link to="/single-product"><i class="bi bi-eye"></i></router-link></li>
+                    <li><a href="single-product.html"><i class="bi bi-star-fill"></i></a></li>
+                    <li><a href="single-product.html"><i class="bi bi-bag-check"></i></a></li>
                                         </ul>
                                     </div>
                                     <img src="assets/images/kid-01.jpg" alt="">

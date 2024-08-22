@@ -32,10 +32,10 @@
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
             <ul>
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="#"><i class="fa fa-behance"></i></a></li>
+              <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+              <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+              <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+              <li><a href="#"><i class="bi bi-behance"></i></a></li>
             </ul>
           </div>
         </div>
@@ -125,7 +125,7 @@
             </div>
             <div class="col-lg-2">
               <fieldset>
-                <button type="submit" id="form-submit" class="main-dark-button" @click.prevent="subscribe"><i class="fa fa-paper-plane"></i></button>
+                <button type="submit" id="form-submit" class="main-dark-button" @click.prevent="subscribe"><i class="bi bi-send"></i></button>
               </fieldset>
             </div>
           </div>

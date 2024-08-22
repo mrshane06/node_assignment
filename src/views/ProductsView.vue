@@ -35,9 +35,9 @@
               <div class="thumb">
                 <div class="hover-content">
                   <ul>
-                    <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
-                    <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                    <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><router-link to="/single-product"><i class="bi bi-eye"></i></router-link></li>
+                    <li><a href="single-product.html"><i class="bi bi-star-fill"></i></a></li>
+                    <li><a href="single-product.html"><i class="bi bi-bag-check"></i></a></li>
                   </ul>
                 </div>
                 <img :src="product.image" :alt="product.title" />
@@ -57,7 +57,7 @@
                 <li v-for="page in pages" :key="page.number" :class="{ active: page.active }">
                   <a href="#">{{ page.number }}</a>
                 </li>
-                <li><a href="#">></a></li>
+                <li><a href="#"></a></li>
               </ul>
             </div>
           </div>
@@ -68,74 +68,36 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data() {
     return {
-      products: [
-        {
-          title: "Classic Spring",
-          price: "$120.00",
-          stars: 5,
-          image: "https://mrshane06.github.io/node_assignment_images/men-01.jpg",
-        },
-        {
-          title: "Air Force 1 X",
-          price: "$90.00",
-          stars: 5,
-          image: "https://mrshane06.github.io/node_assignment_images/men-02.jpg",
-        },
-        {
-          title: "Love Nana ‘20",
-          price: "$150.00",
-          stars: 5,
-          image: "https://mrshane06.github.io/node_assignment_images/men-03.jpg",
-        },
-        {
-          title: "New Green Jacket",
-          price: "$75.00",
-          stars: 5,
-          image: "https://mrshane06.github.io/node_assignment_images/women-01.jpg",
-        },
-        {
-          title: "Classic Dress",
-          price: "$45.00",
-          stars: 5,
-          image: "https://mrshane06.github.io/node_assignment_images/women-02.jpg",
-        },
-        {
-          title: "Spring Collection",
-          price: "$130.00",
-          stars: 5,
-          image: "https://mrshane06.github.io/node_assignment_images/women-03.jpg",
-        },
-        {
-          title: "School Collection",
-          price: "$80.00",
-          stars: 5,
-          image: "https://mrshane06.github.io/node_assignment_images/kid-01.jpg",
-        },
-        {
-          title: "Summer Cap",
-          price: "$12.00",
-          stars: 5,
-          image: "https://mrshane06.github.io/node_assignment_images/kid-02.jpg",
-        },
-        {
-          title: "Classic Kid",
-          price: "$30.00",
-          stars: 5,
-          image: "https://mrshane06.github.io/node_assignment_images/kid-03.jpg",
-        },
-      ],
-      pages: [
-        { number: 1, active: false },
-        { number: 2, active: true },
-        { number: 3, active: false },
-        { number: 4, active: false },
-      ],
-    };
+      products: []
+    }
   },
-};
+  mounted() {
+    this.fetchProducts()
+  },
+  methods: {
+    async fetchProducts() {
+      await axios.get('https://node-assignment-1-nfwz.onrender.com/products')
+        .then(response => {
+          // Create a mapping between API key names and template key names
+          const mappedProducts = response.data.map(product => ({
+            title: product.prodName,
+            image: product.prodURL,
+            price: product.amount,
+            // Add other mappings as needed
+          }))
+          this.products = mappedProducts
+        })
+        .catch(error => {
+          console.error(error)
+        })
+    }
+  }
+}
 </script>
 
 <style scoped>
