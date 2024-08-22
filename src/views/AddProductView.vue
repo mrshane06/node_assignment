@@ -7,7 +7,7 @@
           <div class="col-lg-12">
             <div class="inner-content">
               <h2>Add Product</h2>
-              <span>Awesome, clean &amp; creative HTML5 Template</span>
+              
             </div>
           </div>
         </div>

@@ -8,7 +8,7 @@
                         <div class="thumb">
                             <div class="inner-content">
                                 <h4>We Are Hexashop</h4>
-                                <span>Awesome, clean &amp; creative HTML5 Template</span>
+                                <span>Look Sharp, Shop Smart, Dress with Heart.</span>
                                 <div class="main-border-button">
                                     <a href="#">Purchase Now!</a>
                                 </div>
@@ -129,7 +129,7 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
                                             <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
                                             <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
@@ -152,7 +152,7 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
                                             <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
                                             <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
@@ -175,7 +175,7 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
                                             <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
                                             <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
@@ -198,7 +198,7 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
                                             <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
                                             <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
@@ -246,7 +246,7 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
                                             <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
                                             <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
@@ -269,7 +269,7 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
                                             <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
                                             <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
@@ -292,7 +292,7 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
                                             <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
                                             <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
@@ -315,7 +315,7 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
                                             <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
                                             <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
@@ -363,7 +363,7 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
                                             <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
                                             <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
@@ -386,7 +386,7 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
                                             <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
                                             <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
@@ -409,7 +409,7 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
                                             <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
                                             <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
@@ -432,7 +432,7 @@
                                 <div class="thumb">
                                     <div class="hover-content">
                                         <ul>
-                                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                            <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
                                             <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
                                             <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
@@ -466,3 +466,30 @@ export default {
  
 }
 </script>
+
+<style>
+
+.owl-men-item,
+.owl-women-item,
+.owl-kid-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.owl-men-item .item,
+.owl-women-item .item,
+.owl-kid-item .item {
+  margin: 10px;
+  width: calc(25% - 20px);
+}
+
+.owl-men-item img,
+.owl-women-item img,
+.owl-kid-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+</style>

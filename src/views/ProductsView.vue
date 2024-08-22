@@ -7,7 +7,7 @@
           <div class="col-lg-12">
             <div class="inner-content">
               <h2>Check Our Products</h2>
-              <span>Awesome & Creative HTML CSS layout by TemplateMo</span>
+              <span>Look Sharp, Shop Smart, Dress with Heart.</span>
             </div>
           </div>
         </div>
@@ -35,7 +35,7 @@
               <div class="thumb">
                 <div class="hover-content">
                   <ul>
-                    <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                    <li><router-link to="/single-product"><i class="fa fa-eye"></i></router-link></li>
                     <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
                     <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                   </ul>
@@ -76,55 +76,55 @@ export default {
           title: "Classic Spring",
           price: "$120.00",
           stars: 5,
-          image: "assets/images/men-01.jpg",
+          image: "https://mrshane06.github.io/node_assignment_images/men-01.jpg",
         },
         {
           title: "Air Force 1 X",
           price: "$90.00",
           stars: 5,
-          image: "assets/images/men-02.jpg",
+          image: "https://mrshane06.github.io/node_assignment_images/men-02.jpg",
         },
         {
           title: "Love Nana ‘20",
           price: "$150.00",
           stars: 5,
-          image: "assets/images/men-03.jpg",
+          image: "https://mrshane06.github.io/node_assignment_images/men-03.jpg",
         },
         {
           title: "New Green Jacket",
           price: "$75.00",
           stars: 5,
-          image: "assets/images/women-01.jpg",
+          image: "https://mrshane06.github.io/node_assignment_images/women-01.jpg",
         },
         {
           title: "Classic Dress",
           price: "$45.00",
           stars: 5,
-          image: "assets/images/women-02.jpg",
+          image: "https://mrshane06.github.io/node_assignment_images/women-02.jpg",
         },
         {
           title: "Spring Collection",
           price: "$130.00",
           stars: 5,
-          image: "assets/images/women-03.jpg",
+          image: "https://mrshane06.github.io/node_assignment_images/women-03.jpg",
         },
         {
           title: "School Collection",
           price: "$80.00",
           stars: 5,
-          image: "assets/images/kid-01.jpg",
+          image: "https://mrshane06.github.io/node_assignment_images/kid-01.jpg",
         },
         {
           title: "Summer Cap",
           price: "$12.00",
           stars: 5,
-          image: "assets/images/kid-02.jpg",
+          image: "https://mrshane06.github.io/node_assignment_images/kid-02.jpg",
         },
         {
           title: "Classic Kid",
           price: "$30.00",
           stars: 5,
-          image: "assets/images/kid-03.jpg",
+          image: "https://mrshane06.github.io/node_assignment_images/kid-03.jpg",
         },
       ],
       pages: [
