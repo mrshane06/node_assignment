@@ -1,5 +1,5 @@
-import { getUserDb , getUserIDDb , deleteUserDb , updateUserDb } from "../model/userDb.js";
-// import { hash } from "bcrypt";
+import { getUserDb , getUserIDDb , insertUserDb , deleteUserDb , updateUserDb } from "../model/userDb.js";
+import { hash } from "bcrypt";
 
 const getUser =  async(req,res)=> {
     res.json(await getUserDb());
@@ -8,6 +8,13 @@ const getUser =  async(req,res)=> {
 const getUserId =  async(req,res)=> {
     console.log(req.params.id);
     res.json(await getUserIDDb(req.params.id))
+}
+
+const insertUser = async (req,res) => {
+    let {firstName,lastName,userAge,Gender,userRole,emailAdd,userPass,userProfile} = req.body
+    let hashedP = await hash(userPass, 10)
+    // await insertUserDb(firstName,lastName,userAge,Gender,userRole,emailAdd,hashedP,userProfile)
+    res.send('Data was inserted successfully')
 }
 
 const deleteUser = async (req,res) => {
@@ -28,8 +35,12 @@ const updateUser =  async(req,res)=>{
     userPass?userPass = userPass:userPass = user.userPass;
     userProfile?userProfile = userProfile:userProfile = user.userProfile;
 
-    await updateUserDb(firstName,lastName,userAge,Gender,userRole,emailAdd,userPass,userProfile,req.params.id);
+    await updateUserDb( firstName , lastName , userAge , Gender , userRole , emailAdd , userPass , userProfile , req.params.id);
     res.send('Data has been updated successfully.')
 }
 
-export {getUser , getUserId , deleteUser , updateUser }
+const loginUser = (req,res)=>{
+    res.json({message:"you have signed in successfully",token:req.body.token})
+}
+
+export {getUser , getUserId , insertUser, deleteUser , updateUser , loginUser }
