@@ -5,7 +5,7 @@ const getUser =  async(req,res)=> {
     res.json(await getUserDb());
 }
 
-const getUserId =  async(req,res)=> {
+const getUserId =   async(req,res)=> {
     console.log(req.params.id);
     res.json(await getUserIDDb(req.params.id))
 }
@@ -13,7 +13,7 @@ const getUserId =  async(req,res)=> {
 const insertUser = async (req,res) => {
     let {firstName,lastName,userAge,Gender,userRole,emailAdd,userPass,userProfile} = req.body
     let hashedP = await hash(userPass, 10)
-    // await insertUserDb(firstName,lastName,userAge,Gender,userRole,emailAdd,hashedP,userProfile)
+    await insertUserDb(firstName,lastName,userAge,Gender,userRole,emailAdd,hashedP,userProfile)
     res.send('Data was inserted successfully')
 }
 
