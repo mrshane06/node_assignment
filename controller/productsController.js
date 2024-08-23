@@ -10,8 +10,8 @@ const getProductsId =  async(req,res)=> {
 }
 
 const insertProducts = async (req,res) => {
-    let {prodName , quantity , amount , category , prodUrl} = req.body
-    await insertProductsDb(prodName , quantity , amount , category , prodUrl)
+    let {prodName , quantity , amount , category , prodURL} = req.body
+    await insertProductsDb(prodName , quantity , amount , category , prodURL)
     res.send('Data was inserted successfully')
 }
 
@@ -22,15 +22,15 @@ const deleteProducts = async (req,res) => {
 }
 
 const updateProducts =  async(req,res)=>{
-    let {prodName , quantity , amount , category , prodUrl} = req.body
+    let {prodName , quantity , amount , category , prodURL} = req.body
     let user = await getProductsDb(req.params.id)
     prodName?prodName = prodName:prodName = user.prodName;
     quantity?quantity = quantity:quantity = user.quantity;
     amount?amount = amount:amount = user.amount;
     category?category = category:category = user.category;
-    prodUrl?prodUrl = prodUrl:prodUrl = user.prodUrl;
+    prodURL?prodURL = prodURL:prodURL = user.prodURL;
 
-    await updateProductsDb( prodName , quantity , amount , category , prodUrl , req.params.id);
+    await updateProductsDb( prodName , quantity , amount , category , prodURL , req.params.id);
     res.send('Data has been updated successfully.')
 }
 
