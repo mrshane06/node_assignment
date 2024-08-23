@@ -195,17 +195,18 @@ export default createStore({
     },
     async editProduct(context, payload) {
       try {
-        let prodID = payload.prodID;
-        let msg = await axios.patch(`${dbURL}products/${prodID}`, payload);
-        if (msg) {
+        const product_id = payload.product_id;
+        const updatedFields = { /* create an object with only the updated fields */ };
+        const response = await axios.patch(`${dbURL}products/${product_id}`, updatedFields);
+        if (response) {
           context.dispatch("fetchProducts");
           sweet({
             title: "Edit Product",
-            text: msg,
+            text: response.data,
             icon: "success",
             timer: 4000,
           });
-          location.reload() 
+          location.reload();
         }
       } catch (e) {
         sweet({
