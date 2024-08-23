@@ -21,21 +21,15 @@
       <div class="row">
         <div class="col-lg-8">
           <div class="left-images">
-            <img src="assets/images/single-product-01.jpg" alt="">
-            <img src="assets/images/single-product-02.jpg" alt="">
+            <img :src="product.prodURL" alt="">
           </div>
         </div>
         <div class="col-lg-4">
           <div class="right-content">
-            <h4>{{ productName }}</h4>
-            <span class="price">${{ price }}</span>
-            <ul class="stars">
-              <li v-for="star in stars" :key="star"><i class="fa fa-star"></i></li>
-            </ul>
-            <span>{{ description }}</span>
-            <div class="quote">
-              <i class="fa fa-quote-left"></i><p>{{ quote }}</p>
-            </div>
+            <h4>{{ product.prodName }}</h4>
+            <span class="price">${{ product.amount }}</span>
+            <p>Quantity: {{ product.quantity }}</p>
+            <p>Category: {{ product.category }}</p>
             <div class="quantity-content">
               <div class="left-content">
                 <h6>No. of Orders</h6>
@@ -61,34 +55,41 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data() {
     return {
-      productName: 'New Green Jacket',
-      price: 75.00,
-      stars: 5,
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod kon tempor incididunt ut labore.',
-      quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiuski smod.',
-      quantity: 1
+      product: {},
+      quantity: 1,
+      total: 0
     }
   },
-  computed: {
-    total() {
-      return this.price * this.quantity
-    }
+  mounted() {
+  const productId = this.$route.params.id
+  console.log(`ProductId: ${productId}`)
+  axios.get(`https://node-assignment-1-nfwz.onrender.com/products/${productId}`)
+    .then(response => {
+      console.log('API Response:', response.data)
+      this.product = response.data
+      this.total = this.product.amount * this.quantity
+    })
+    .catch(error => {
+      console.error(error)
+      // Display error message or redirect to error page
+    })
   },
   methods: {
     decrementQuantity() {
-      if (this.quantity > 1) {
-        this.quantity--
-      }
+      this.quantity -= 1
+      this.total = this.product.amount * this.quantity
     },
     incrementQuantity() {
-      this.quantity++
+      this.quantity += 1
+      this.total = this.product.amount * this.quantity
     },
     addToCart() {
-      // Add to cart logic here
-      console.log('Added to cart')
+      // Implement logic for adding product to cart
     }
   }
 }
