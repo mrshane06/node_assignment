@@ -23,8 +23,8 @@ const deleteProductsDb = async(id) => {
     await pool.query('DELETE FROM products WHERE product_id =?', [id])
 }
 
-const updateProductsDb = async (prodName , quantity , amount , category , prodUrl,  id)=>{
-    await pool.query('UPDATE products SET prodName = ? , quantity = ? , amount = ? , category = ? , prodUrl = ? WHERE product_id = ?', [prodName , quantity , amount , category , prodUrl, id])
+const updateProductsDb = async (prodName , quantity , amount , category , prodURL,  id)=>{
+    await pool.query('UPDATE products SET prodName = ? , quantity = ? , amount = ? , category = ? , prodURL = ? WHERE product_id = ?', [prodName , quantity , amount , category , prodURL, id])
 }
 
 export {getProductsDb , getProductsIDDb , insertProductsDb , deleteProductsDb , updateProductsDb} 
