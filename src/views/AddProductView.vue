@@ -7,14 +7,12 @@
           <div class="col-lg-12">
             <div class="inner-content">
               <h2>Add Product</h2>
-              
             </div>
           </div>
         </div>
       </div>
     </div>
     <!-- ***** Main Banner Area End ***** -->
-
     <!-- ***** Main Container Start ***** -->
     <div class="main-container">
       <div class="container">
@@ -27,19 +25,27 @@
               <form @submit.prevent="addProduct">
                 <div class="form-group">
                   <label for="product-name">Product Name</label>
-                  <input type="text" v-model="product.name" id="product-name" class="form-control" required>
+                  <input type="text" v-model="product.prodName" id="product-name" class="form-control" required>
                 </div>
                 <div class="form-group">
-                  <label for="product-description">Product Description</label>
-                  <textarea v-model="product.description" id="product-description" class="form-control" rows="5" required></textarea>
+                  <label for="product-quantity">Quantity</label>
+                  <input type="number" v-model="product.quantity" id="product-quantity" class="form-control" required>
                 </div>
                 <div class="form-group">
-                  <label for="product-price">Product Price</label>
-                  <input type="number" v-model="product.price" id="product-price" class="form-control" step="0.01" required>
+                  <label for="product-amount">Amount</label>
+                  <input type="number" v-model="product.amount" id="product-amount" class="form-control" step="0.01" required>
                 </div>
                 <div class="form-group">
-                  <label for="product-image">Product Image</label>
-                  <input type="file" @change="handleImageChange" id="product-image" class="form-control" required>
+                  <label for="product-category">Category</label>
+                  <select v-model="product.category" id="product-category" class="form-control" required>
+                    <option value="mens">Mens</option>
+                    <option value="womens">Womens</option>
+                    <option value="kids">Kids</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="product-image">Product Image URL</label>
+                  <input type="text" v-model="product.prodURL" id="product-image" class="form-control" required>
                 </div>
                 <button type="submit" class="main-border-button">Add Product</button>
               </form>
@@ -49,27 +55,103 @@
       </div>
     </div>
     <!-- ***** Main Container End ***** -->
+        <!-- ***** Products Table Start ***** -->
+    <div class="main-container">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="main-content-area">
+              <div class="section-heading">
+                <h2>Products</h2>
+              </div>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Product Image URL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="product in products" :key="product.product_id">
+                    <td>{{ product.product_id }}</td>
+                    <td>{{ product.prodName }}</td>
+                    <td>{{ product.quantity }}</td>
+                    <td>{{ product.amount }}</td>
+                    <td>{{ product.category }}</td>
+                    <td>{{ product.prodURL }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ***** Products Table End ***** -->
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data() {
     return {
       product: {
-        name: '',
-        description: '',
-        price: 0,
-        image: null
-      }
+        prodName: '',
+        quantity: 0,
+        amount: 0.00,
+        category: '',
+        prodURL: ''
+      },
+      products: [] // add this to store the fetched products
     }
   },
+  
+  mounted() {
+    this.fetchProducts()
+  },
+  
   methods: {
-    addProduct() {
-      // Add product logic here
+    async fetchProducts() {
+      await axios.get('https://node-assignment-1-nfwz.onrender.com/products')
+        .then(response => {
+          const mappedProducts = response.data.map(product => ({
+            product_id: product.product_id,
+            prodName: product.prodName,
+            quantity: product.quantity,
+            amount: product.amount,
+            category: product.category,
+            prodURL: product.prodURL
+          }))
+          this.products = mappedProducts
+        })
+        .catch(error => {
+          console.error(error)
+        })
     },
-    handleImageChange(event) {
-      this.product.image = event.target.files[0]
+    
+    addProduct() {
+        if (!this.product.prodName || !this.product.quantity || !this.product.amount || !this.product.category || !this.product.prodURL) {
+    alert('Please fill in all required fields');
+    return;
+  }
+  axios.post('https://node-assignment-1-nfwz.onrender.com/products/insert', this.product)
+    .then(response => {
+      if (response.status === 201) {
+        console.log('Product added successfully!');
+        this.fetchProducts(); // refresh the products list
+      } else {
+        console.error('Error adding product:', response.data);
+      }
+    })
+    .catch(error => {
+      console.error(error);
+    });
     }
   }
 }

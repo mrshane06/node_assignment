@@ -26,17 +26,28 @@
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
                     <th>Role</th>
+                    <th>Email</th>
+                    <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="user in users" :key="user.id">
-                    <td>{{ user.id }}</td>
-                    <td>{{ user.name }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>{{ user.role }}</td>
+                  <tr v-for="user in users" :key="user.users_id">
+                    <td>{{ user.users_id }}</td>
+                    <td>{{ user.firstName }}</td>
+                    <td>{{ user.lastName }}</td>
+                    <td>{{ user.userAge }}</td>
+                    <td>{{ user.Gender }}</td>
+                    <td>{{ user.userRole }}</td>
+                    <td>{{ user.emailAdd }}</td>
+                    <td>
+                      <button class="btn btn-primary" @click="editUser(user.users_id)">Edit</button>
+                      <button class="btn btn-danger" @click="deleteUser(user.users_id)">Delete</button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -50,14 +61,46 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data() {
     return {
-      users: [
-        { id: 1, name: 'John Doe', email: 'johndoe@example.com', role: 'Admin' },
-        { id: 2, name: 'Jane Doe', email: 'janedoe@example.com', role: 'User' },
-        // Add more users here
-      ]
+      users: []
+    }
+  },
+  mounted() {
+    axios.get('https://node-assignment-1-nfwz.onrender.com/user')
+      .then(response => {
+        this.users = response.data
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  },
+  methods: {
+    editUser(userId) {
+      // Call API to edit user
+      axios.put(`https://your-api-url.com/user/:id${userId}`)
+        .then(response => {
+          // Update user data in the table
+          const userIndex = this.users.findIndex(user => user.users_id === userId);
+          this.users[userIndex] = response.data;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
+    deleteUser(userId) {
+      // Call API to delete user
+      axios.delete(`https://your-api-url.com/user/:id${userId}`)
+        .then(() => {
+          // Remove user from the table
+          const userIndex = this.users.findIndex(user => user.users_id === userId);
+          this.users.splice(userIndex, 1);
+        })
+        .catch(error => {
+          console.error(error);
+        });
     }
   }
 }
@@ -106,5 +149,9 @@ export default {
 
 .table-striped tbody tr:nth-child(even) {
   background-color: #f9f9f9;
+}
+
+.btn {
+  margin: 5px;
 }
 </style>
