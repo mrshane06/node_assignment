@@ -197,9 +197,13 @@ export default createStore({
       try {
         const product_id = payload.product_id;
         const updatedFields = { /* create an object with only the updated fields */ };
+        console.log('1');
+        
         const response = await axios.patch(`${dbURL}products/${product_id}`, updatedFields);
+        console.log('2');
         if (response) {
           context.dispatch("fetchProducts");
+          console.log('3');
           sweet({
             title: "Edit Product",
             text: response.data,

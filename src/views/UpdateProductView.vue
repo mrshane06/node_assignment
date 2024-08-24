@@ -25,7 +25,7 @@
               <form @submit.prevent="updateProduct">
                 <div class="form-group">
                   <label for="product-id">Product ID</label>
-                  <input type="text" v-model="product.product_id" id="product-id" class="form-control" required>
+                  <input type="text" v-model="product.product_id" id="product-id" class="form-control" required @input="fetchProduct">
                 </div>
                 <div class="form-group">
                   <label for="product-name">Product Name</label>
@@ -51,7 +51,7 @@
                   <label for="product-image">Product Image URL</label>
                   <input type="text" v-model="product.prodURL" id="product-image" class="form-control" required>
                 </div>
-                <button type="submit" class="main-border-button">Update Product</button>
+                <button @click="updateProduct" class="main-border-button">Update Product</button>
               </form>
             </div>
           </div>
@@ -139,15 +139,31 @@ export default {
           console.error(error)
         })
     },
+async fetchProduct() {
+  if (!this.product.product_id) return;
+  try {
+    console.log(`Fetching product with ID: ${this.product.product_id}`);
+    const response = await axios.get(`https://node-assignment-1-nfwz.onrender.com/products/${this.product.product_id}`);
+    console.log('Product data:', response.data);
+    this.product = response.data;
+  } catch (error) {
+    console.error('Error fetching product:', error);
+  }
+}
+
+    },
+  
     
 updateProduct() {
   if (!this.product.product_id) {
+    console.log('fdt');
+    
     console.error('Product ID is missing or empty');
     return;
   }
   console.log('Updating product:', this.product); // For debugging
   try {
-    axios.put(`https://node-assignment-1-nfwz.onrender.com/products/:id${this.product.product_id}`, this.product)
+    axios.patch(`https://node-assignment-1-nfwz.onrender.com/products/${this.product.product_id}`, this.product)
       .then(response => {
         console.log('Product updated successfully:', response.data);
         this.fetchProducts(); // refresh the products list
@@ -161,7 +177,7 @@ updateProduct() {
 }
 
   }
-}
+
 </script>
 
 
