@@ -22,6 +22,43 @@
               <div class="section-heading">
                 <h2>All Users</h2>
               </div>
+
+              <!-- Add User Form -->
+              <div class="add-user-form">
+                <h3>Add New User</h3>
+                <form @submit.prevent="addUser">
+                  <div class="form-group">
+                    <label>First Name:</label>
+                    <input v-model="newUser.firstName" required />
+                  </div>
+                  <div class="form-group">
+                    <label>Last Name:</label>
+                    <input v-model="newUser.lastName" required />
+                  </div>
+                  <div class="form-group">
+                    <label>Age:</label>
+                    <input v-model="newUser.userAge" type="number" required />
+                  </div>
+                  <div class="form-group">
+                    <label>Gender:</label>
+                    <select v-model="newUser.Gender" required>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Role:</label>
+                    <input v-model="newUser.userRole" required />
+                  </div>
+                  <div class="form-group">
+                    <label>Email:</label>
+                    <input v-model="newUser.emailAdd" type="email" required />
+                  </div>
+                  <button class="btn btn-success" type="submit">Add User</button>
+                </form>
+              </div>
+
+              <!-- User List Table -->
               <table class="table table-striped">
                 <thead>
                   <tr>
@@ -45,8 +82,28 @@
                     <td>{{ user.userRole }}</td>
                     <td>{{ user.emailAdd }}</td>
                     <td>
-                      <button class="btn btn-primary" @click="editUser(user.users_id)">Edit</button>
+                      <button class="btn btn-primary" @click="startEditing(user)">Edit</button>
                       <button class="btn btn-danger" @click="deleteUser(user.users_id)">Delete</button>
+                    </td>
+                  </tr>
+
+                  <!-- Conditionally render the edit form -->
+                  <tr v-if="editingUser">
+                    <td>{{ editingUser.users_id }}</td>
+                    <td><input v-model="editingUser.firstName" /></td>
+                    <td><input v-model="editingUser.lastName" /></td>
+                    <td><input v-model="editingUser.userAge" type="number" /></td>
+                    <td>
+                      <select v-model="editingUser.Gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                      </select>
+                    </td>
+                    <td><input v-model="editingUser.userRole" /></td>
+                    <td><input v-model="editingUser.emailAdd" /></td>
+                    <td>
+                      <button class="btn btn-success" @click="saveUser">Save</button>
+                      <button class="btn btn-secondary" @click="cancelEditing">Cancel</button>
                     </td>
                   </tr>
                 </tbody>
@@ -61,40 +118,76 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
+
 export default {
   data() {
     return {
-      users: []
-    }
+      users: [],
+      newUser: {
+        firstName: '',
+        lastName: '',
+        userAge: null,
+        Gender: 'Male',
+        userRole: '',
+        emailAdd: ''
+      },
+      editingUser: null // To track the user being edited
+    };
   },
   mounted() {
     axios.get('https://node-assignment-1-nfwz.onrender.com/user')
       .then(response => {
-        this.users = response.data
+        this.users = response.data;
       })
       .catch(error => {
-        console.error(error)
-      })
+        console.error(error);
+      });
   },
   methods: {
-    editUser(userId) {
-      // Call API to edit user
-      axios.put(`https://your-api-url.com/user/:id${userId}`)
+    addUser() {
+      axios.post('https://node-assignment-1-nfwz.onrender.com/user/insert', this.newUser)
         .then(response => {
-          // Update user data in the table
-          const userIndex = this.users.findIndex(user => user.users_id === userId);
-          this.users[userIndex] = response.data;
+          this.users.push(response.data); // Add the new user to the list
+          // Reset the form
+          this.newUser = {
+            firstName: '',
+            lastName: '',
+            userAge: null,
+            Gender: 'Male',
+            userRole: '',
+            emailAdd: ''
+          };
         })
         .catch(error => {
-          console.error(error);
+          console.error('Error adding user:', error);
+        });
+    },
+    startEditing(user) {
+      // Create a copy of the user object to avoid directly modifying the list
+      this.editingUser = { ...user };
+    },
+    cancelEditing() {
+      this.editingUser = null;
+    },
+    saveUser() {
+      if (!this.editingUser) return;
+
+      axios.patch(`https://node-assignment-1-nfwz.onrender.com/user/${this.editingUser.users_id}`, this.editingUser)
+        .then(response => {
+          const userIndex = this.users.findIndex(user => user.users_id === this.editingUser.users_id);
+          if (userIndex !== -1) {
+            this.users[userIndex] = response.data; // Update the user
+          }
+          this.editingUser = null; // Reset the editing state
+        })
+        .catch(error => {
+          console.error('Error updating user:', error);
         });
     },
     deleteUser(userId) {
-      // Call API to delete user
-      axios.delete(`https://your-api-url.com/user/:id${userId}`)
+      axios.delete(`https://node-assignment-1-nfwz.onrender.com/user/${userId}`)
         .then(() => {
-          // Remove user from the table
           const userIndex = this.users.findIndex(user => user.users_id === userId);
           this.users.splice(userIndex, 1);
         })
@@ -103,7 +196,7 @@ export default {
         });
     }
   }
-}
+};
 </script>
 
 <style>
@@ -149,6 +242,31 @@ export default {
 
 .table-striped tbody tr:nth-child(even) {
   background-color: #f9f9f9;
+}
+
+.add-user-form {
+  margin-bottom: 30px;
+}
+
+.add-user-form h3 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .btn {
